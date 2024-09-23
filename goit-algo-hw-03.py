@@ -15,23 +15,17 @@ def get_days_from_today(data):
 
 # Завдання 2
 def get_numbers_ticket(min, max, quantity):
-    if min >= 1:
-        if max <= 1000:
-            if quantity >= min and quantity <= max:
-                cnt = 0
-                lottery_numbers = []
-                while cnt < quantity:
-                    num = random.randint(min, max)
-                    if num not in lottery_numbers:
-                        bisect.insort(lottery_numbers, num)
-                        cnt = cnt + 1
-                return lottery_numbers
-            else:
-                return "Некоректна кількість чисел, які потрібно вибрати (значення quantity має бути між min і max) "
-        else:
-            return "Некоректне максимальне можливе число max у наборі (має бути не більше 1000)."
+    lottery_numbers = []
+    if min >= 1 and max <= 1000:
+        cnt = 0        
+        while cnt < quantity:
+            num = random.randint(min, max)
+            if num not in lottery_numbers:
+                bisect.insort(lottery_numbers, num)
+                cnt = cnt + 1
+        return lottery_numbers            
     else:
-        return "Некоректне мінімальне можливе число min у наборі (має бути не менше 1)."
+        return lottery_numbers
 
 # Завдання 3
 def normalize_phone(phone_number):
