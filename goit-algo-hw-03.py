@@ -16,7 +16,7 @@ def get_days_from_today(data):
 # Завдання 2
 def get_numbers_ticket(min, max, quantity):
     lottery_numbers = []
-    if min >= 1 and max <= 1000:
+    if min >= 1 and max <= 1000 and max > min and max - min +1 >= quantity :
         cnt = 0        
         while cnt < quantity:
             num = random.randint(min, max)
